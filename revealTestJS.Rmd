@@ -1,7 +1,7 @@
 ---
 title: "revealJS로 PT 파일 만들기"
 author: "eunkwang"
-date: '`r Sys.Date()`'
+date: '2017-11-06'
 output: 
   html_document: 
     toc: yes
@@ -29,7 +29,8 @@ Rstudio 에서 기본적으로 제공하는 프레젠테이션 용 템플릿은 
 
 revealjs를 콘트롤 하기 위해서는 문서 상단에 PT의 config을 다음과 같이 기록해야 하며 이에 대한 규칙은 기본적으로 yaml 문법을 따르나 다른 템플릿 패키지와 차이가 있음
 
->title: "PT 파일 테스트 하기"    
+```{yml eval = FALSE}
+title: "yml 설정하기"    
 output:   
   revealjs::revealjs_presentation:    
     theme: sky  # (테마 적용)   
@@ -39,6 +40,8 @@ output:
     reveal_options:  # (추가 옵션)    
       slideNumber: true   
       previewLinks: true    
+```
+
 
 
 revealjs 에서는 다음과 같은 다양 한 기본 테마를 제공하며 yaml 에서 theme 파라미터 값을 변경하여 적용할 수 있음
@@ -62,7 +65,7 @@ https://github.com/hakimel/reveal.js#configuration
 
 ## 리스트 블릿 사용하기
 
->- 블릿 애니메이션은 '-, *' symbol을 이용하여 작성할 수 있음
+- 블릿 애니메이션은 '-, *' symbol을 이용하여 작성할 수 있음
 - 리스트 블릿 앞에 '>' 을 붙이면 리스트 애니메이션으로 동작함 
 - '> -' 문법은 ## 로 작성된 페이지에서만 작동됨
 
@@ -71,7 +74,8 @@ https://github.com/hakimel/reveal.js#configuration
 
 Chunk 옵션에 다음과 같이 fig.show = "animate", interval = .05, cache = T 를 설정하여 loop 에서 생성되는 이미지 묶음을 하나의 영상으로 인코딩 하는 것이 가능함
 
-> {r example, fig.height = 5, fig.show = "animate", interval = .05, echo = F, cache = T}    
+```{r eval = FALSE}
+{r example, fig.height = 5, fig.show = "animate", interval = .05, echo = F, cache = T}    
   x <- c(0, 1, 2, 3)    
   y <- c(0, 2, 3, 4)    
   for(i in 1:400){    
@@ -85,6 +89,8 @@ Chunk 옵션에 다음과 같이 fig.show = "animate", interval = .05, cache = T
     lims(x = c(0, 3), y = c(0, 4))    
   print(p)    
 }   
+```
+
 
 그러나 영상 처리 시 코덱에 따라 인코딩 문제가 발생 할 수 있어 최종 결과물에 문제가 있으면 영상 인코딩을 다시 해야 함. 인코딩 명령은 BASH Shell 에서 다음과 같은 명령어를 통해 위 코드에서 생성된 이미지를 다시 인코딩 할 수 있음
 
