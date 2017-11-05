@@ -100,9 +100,9 @@ ffmpeg -y -r 20 -i output/figure/example-%d.png -c:v libvpx -minrate 1M -crf 10 
 ```
 
 
-## 화면 횡으로 나누기
+## 화면 종으로 나누기
 
-슬라이드에서 화면을 횡으로 나눠서 표기 하기 위해서는 다음과 같이 처리해야 함
+슬라이드에서 화면을 종으로 나눠서 표기 하기 위해서는 CSS로 다음과 같이 선언한 후 div 태그로 스타일을 지정해서 처리해야 함
 
 ```{css eval = FALSE}
 <style>
